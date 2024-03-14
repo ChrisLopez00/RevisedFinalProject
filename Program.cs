@@ -26,10 +26,8 @@ namespace HealthApp
             } while (string.IsNullOrWhiteSpace(name) || ContainsNumberOrSpecialCharacter(name));
               return name;
         }
-
             // First Name
             string firstName = GetValidNameInput("First Name: ");
-
             // Last Name
             string lastName = GetValidNameInput("Last Name: ");
 
@@ -55,7 +53,6 @@ namespace HealthApp
                              // Ans: The while(true) loop creates an infinite loop, the loop is stopped by the break statement when the birth year is successfully parsed and within the valid range.
                 return birthYear;
         }
-
             int birthYear = GetValidBirthYear();
 
         // TODO: move this gender section to a method for code reusability
@@ -77,194 +74,173 @@ namespace HealthApp
                            // Ans: the while (true) statement creates an infinite loop when valid but If the input is invalid, the program displays an error message and continues the loop until a valid gender is entered. 
               return gender;
         }
-
             char gender = GetValidGender();
 
-            // Questionnaire
-            List<string> responses = new List<string>();
-
+        // Questionnaire
+        List<string> responses = new List<string>();
+        // TODO: consider creating a method to output these section displays
+        void DisplaySectionHeader(string header)
+        {
             Console.WriteLine("");
             Console.WriteLine("******************************************");
-            Console.WriteLine("Please answer the following questionnaire");
+            Console.WriteLine(header);
             Console.WriteLine("******************************************");
+        }
+        DisplaySectionHeader("Please answer the following questionnaire");
 
-            // Question 1
-            Console.Write("Date of appointment MM/DD/YYYY: ");
-            string response1 = Console.ReadLine();
-            responses.Add(response1);
+        // TODO: create a data structure to hold the questions
+        // TODO: create a reusable method to handle the questions and responses
+        // TODO: create a looping statement to display the questions and get the responses
+        List<string> questions = new List<string>
+        {
+                "Date of appointment MM/DD/YYYY",
+                "Primary care provider (if applicable)",
+                "Insurance provider (if applicable)"
+        };
+        void HandleQuestionResponse(string question)
+        {
+            string response;
+            do
+            {
+                Console.Write($"{question}: ");
+                response = Console.ReadLine();
+            } while (string.IsNullOrWhiteSpace(response));
+            responses.Add(response);
+        }
+            foreach (string question in questions)
+            {
+                HandleQuestionResponse(question);
+            }
 
-            // Question 2
-            Console.Write("Primary care provider (if applicable): ");
-            string response2 = Console.ReadLine();
-            responses.Add(response2);
-
-            // Question 3
-            Console.Write("Insurance provider (if applicable): ");
-            string response3 = Console.ReadLine();
-            responses.Add(response3);
-
-            // Contact information title
+        // TODO: consider creating a method to output these section displays
+        // Contact information title
+        void DisplaySectionHeader2(string header)
+        {
             Console.WriteLine("");
             Console.WriteLine("******************************************");
-            Console.WriteLine("            Contact information           ");
+            Console.WriteLine(header);
             Console.WriteLine("******************************************");
+        }
+        DisplaySectionHeader2("Contact information");
 
-            // Question 4
-            Console.Write("Housing address: ");
-            string response4 = Console.ReadLine();
-            responses.Add(response4);
+        // TODO: create a data structure to hold the questions
+        // TODO: create a reusable method to handle the questions and responses
+        // TODO: create a looping statement to display the questions and get the responses
+        List<string> questions2 = new List<string>
+        {
+                "Housing address",
+                "Email address",
+                "Phone number"
+        };
+        void HandleQuestionResponse2(string question)
+        {
+            string response;
+            do
+            {
+                Console.Write($"{question}: ");
+                response = Console.ReadLine();
+            } while (string.IsNullOrWhiteSpace(response));
+            responses.Add(response);
+        }
+            foreach (string question in questions)
+            {
+                HandleQuestionResponse2(question);
+            }
 
-            // Question 5
-            Console.Write("Email address: ");
-            string response5 = Console.ReadLine();
-            responses.Add(response5);
-
-            // Question 6
-            Console.Write("Phone number: ");
-            string response6 = Console.ReadLine();
-            responses.Add(response6);
-
-            // Emergency contact information title
+        // TODO: consider creating a method to output these section displays
+        // Emergency contact information title
+        void DisplaySectionHeader3(string header)
+        {
             Console.WriteLine("");
             Console.WriteLine("******************************************");
-            Console.WriteLine("       Emergency contact information      ");
+            Console.WriteLine(header);
             Console.WriteLine("******************************************");
+        }
+        DisplaySectionHeader3("Emergency contact information");
 
-            // Question 7
-            Console.Write("Emergency contact first & last name: ");
-            string response7 = Console.ReadLine();
-            responses.Add(response7);
+        // TODO: create a data structure to hold the questions
+        // TODO: create a reusable method to handle the questions and responses
+        // TODO: create a looping statement to display the questions and get the responses
+        List<string> questions3 = new List<string>
+        {
+                "Emergency contact first & last name",
+                "Emergency contact phone number"
+        };
+        void HandleQuestionResponse3(string question)
+        {
+            string response;
+            do
+            {
+                Console.Write($"{question}: ");
+                response = Console.ReadLine();
+            } while (string.IsNullOrWhiteSpace(response));
+            responses.Add(response);
+        }
+            foreach (string question in questions)
+            {
+                HandleQuestionResponse3(question);
+            }
 
-            // Question 8
-            Console.Write("Emergency contact phone number: ");
-            string response8 = Console.ReadLine();
-            responses.Add(response8);
-
-            // Symptoms title
+        // TODO: consider creating a method to output these section displays
+        // Symptoms title
+        void DisplaySectionHeader4(string header)
+        {
             Console.WriteLine("");
             Console.WriteLine("******************************************");
-            Console.WriteLine("                 Symptoms                 ");
+            Console.WriteLine(header);
             Console.WriteLine("******************************************");
+        }
+        DisplaySectionHeader4("Symptoms");
 
-            // Question 9
-            Console.Write("Nausea Y/N: ");
-            string response9 = Console.ReadLine();
-            responses.Add(response9);
-
-            // Question 10
-            Console.Write("Stomach pain Y/N: ");
-            string response10 = Console.ReadLine();
-            responses.Add(response10);
-
-            // Question 11
-            Console.Write("Constipation Y/N: ");
-            string response11 = Console.ReadLine();
-            responses.Add(response11);
-
-            // Question 12
-            Console.Write("Blood in stool Y/N: ");
-            string response12 = Console.ReadLine();
-            responses.Add(response12);
-
-            // Question 13
-            Console.Write("Vomiting Y/N: ");
-            string response13 = Console.ReadLine();
-            responses.Add(response13);
-
-            // Question 14
-            Console.Write("Fever or chills Y/N: ");
-            string response14 = Console.ReadLine();
-            responses.Add(response14);
-
-            // Question 15
-            Console.Write("Fatigue or weakness Y/N: ");
-            string response15 = Console.ReadLine();
-            responses.Add(response15);
-
-            // Question 16
-            Console.Write("Unexplained weight loss or gain Y/N: ");
-            string response16 = Console.ReadLine();
-            responses.Add(response16);
-
-            // Question 17
-            Console.Write("Changes in appetite Y/N: ");
-            string response17 = Console.ReadLine();
-            responses.Add(response17);
-
-            // Question 18
-            Console.Write("Persistent pain or discomfort Y/N: ");
-            string response18 = Console.ReadLine();
-            responses.Add(response18);
-
-            // Question 19
-            Console.Write("Shortness of breath or difficulty breathing Y/N: ");
-            string response19 = Console.ReadLine();
-            responses.Add(response19);
-
-            // Question 20
-            Console.Write("Chest pain or tightness Y/N: ");
-            string response20 = Console.ReadLine();
-            responses.Add(response20);
-
-            // Question 21
-            Console.Write("Palpitations or irregular heartbeats Y/N: ");
-            string response21 = Console.ReadLine();
-            responses.Add(response21);
-
-            // Question 22
-            Console.Write("Dizziness or lightheadedness Y/N: ");
-            string response22 = Console.ReadLine();
-            responses.Add(response22);
-
-            // Question 23
-            Console.Write("Persistent cough or coughing up blood Y/N: ");
-            string response23 = Console.ReadLine();
-            responses.Add(response23);
-
-            // Question 24
-            Console.Write("Difficulty swallowing Y/N: ");
-            string response24 = Console.ReadLine();
-            responses.Add(response24);
-
-            // Question 25
-            Console.Write("Changes in urination (frequency, urgency, pain, blood in urine) Y/N: ");
-            string response25 = Console.ReadLine();
-            responses.Add(response25);
-
-            // Question 26
-            Console.Write("Skin rashes, lesions, or changes in moles Y/N: ");
-            string response26 = Console.ReadLine();
-            responses.Add(response26);
-
-            // Question 27
-            Console.Write("Swelling or lumps in the body Y/N: ");
-            string response27 = Console.ReadLine();
-            responses.Add(response27);
-
-            // Question 28
-            Console.Write("Joint pain or stiffness Y/N: ");
-            string response28 = Console.ReadLine();
-            responses.Add(response28);
-
-            // Question 29
-            Console.Write("Headaches or migraines Y/N: ");
-            string response29 = Console.ReadLine();
-            responses.Add(response29);
-
-            // Question 30
-            Console.Write("Changes in vision or hearing Y/N: ");
-            string response30 = Console.ReadLine();
-            responses.Add(response30);
-
-            // Question 31
-            Console.Write("Mood changes, depression, or anxiety Y/N: ");
-            string response31 = Console.ReadLine();
-            responses.Add(response31);
-
-            // Question 32
-            Console.Write("Sleep disturbances or insomnia Y/N: ");
-            string response32 = Console.ReadLine();
-            responses.Add(response32);
+        // TODO: create a data structure to hold the questions
+        // TODO: create a reusable method to handle the questions and responses
+        // TODO: create a looping statement to display the questions and get the responses
+        List<string> questions4 = new List<string>
+        {
+                "Nausea",
+                "Stomach pain",
+                "Constipation",
+                "Blood in stool",
+                "Vomiting",
+                "Fever or chills",
+                "Fatigue or weakness",
+                "Unexplained weight loss or gain",
+                "Changes in appetite",
+                "Persistent pain or discomfort",
+                "Shortness of breath or difficulty breathing",
+                "Chest pain or tightness",
+                "Palpitations or irregular heartbeats",
+                "Dizziness or lightheadedness",
+                "Persistent cough or coughing up blood",
+                "Difficulty swallowing",
+                "Changes in urination (frequency, urgency, pain, blood in urine)",
+                "Skin rashes, lesions, or changes in moles",
+                "Swelling or lumps in the body",
+                "Joint pain or stiffness",
+                "Headaches or migraines",
+                "Changes in vision or hearing",
+                "Mood changes, depression, or anxiety",
+                "Sleep disturbances or insomnia"
+};    
+        void HandleQuestionResponse4(string question)
+        {
+            string response;
+            do
+            {
+               Console.Write($"{question} Y/N: ");
+               response = Console.ReadLine();
+            } while (!IsValidResponse(response));
+             responses.Add(response);
+        }
+            // Method to validate the response (Y/N)
+            bool IsValidResponse(string response)
+            {
+                return !string.IsNullOrWhiteSpace(response) && (response.Equals("Y", StringComparison.OrdinalIgnoreCase) || response.Equals("N", StringComparison.OrdinalIgnoreCase));
+            }
+            foreach (string question in questions)
+            {
+                HandleQuestionResponse4(question);
+            }
 
             // Profile Summary Section
             Console.WriteLine();
