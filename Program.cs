@@ -13,22 +13,30 @@ namespace HealthApp
             Console.WriteLine("********************************");
             Console.WriteLine("Avenal Clinic - New Patient Form");
             Console.WriteLine("********************************");
-
-           
-            // First Name & Last Name 
-            string firstName, lastName;
+        
+        // TODO: the first and last name performs a similar functionality. create a method to handle both.
+        // First Name & Last Name 
+        string GetValidNameInput(string prompt)
+        {
+            string name;
             do
             {
-                Console.Write("First Name: ");
-                firstName = Console.ReadLine();
-            } while (string.IsNullOrWhiteSpace(firstName) || ContainsNumberOrSpecialCharacter(firstName));
-            do
-            {
-                Console.Write("Last Name: ");
-                lastName = Console.ReadLine();
-            } while (string.IsNullOrWhiteSpace(lastName) || ContainsNumberOrSpecialCharacter(lastName));
+                Console.Write(prompt);
+                name = Console.ReadLine();
+            } while (string.IsNullOrWhiteSpace(name) || ContainsNumberOrSpecialCharacter(name));
+              return name;
+        }
 
-            // Birth Year
+            // First Name
+            string firstName = GetValidNameInput("First Name: ");
+
+            // Last Name
+            string lastName = GetValidNameInput("Last Name: ");
+
+        // TODO: move this birth year section to a method for code reusability
+        // Birth Year
+        int GetValidBirthYear()
+        {
             int birthYear;
             do
             {
@@ -43,23 +51,34 @@ namespace HealthApp
                     break;
                 }
                 Console.WriteLine("Invalid birth year. Please enter a valid year.");
-            } while (true); // TODO: while(true) creates an infinite loop. what makes the loop stop?
-                            // Ans: The while(true) loop creates an infinite loop, the loop is stopped by the break statement when the birth year is successfully parsed and within the valid range.
+            }   while (true);// TODO: while(true) creates an infinite loop. what makes the loop stop?
+                             // Ans: The while(true) loop creates an infinite loop, the loop is stopped by the break statement when the birth year is successfully parsed and within the valid range.
+                return birthYear;
+        }
 
-            // Gender
+            int birthYear = GetValidBirthYear();
+
+        // TODO: move this gender section to a method for code reusability
+        // Gender
+        char GetValidGender()
+        {
             char gender;
             do
             {
                 Console.Write("Gender (M/F/O): ");
                 string genderInput = Console.ReadLine();
+                // TODO: normalize the genderInput so it accepts lowercase and uppercase inputs (e.g. 'm', 'f', 'o')
                 if (char.TryParse(genderInput, out gender) && (char.ToUpper(gender) == 'M' || char.ToUpper(gender) == 'F' || char.ToUpper(gender) == 'O'))
                 {
-                    break;
+                break;
                 }
                 Console.WriteLine("Invalid gender. Please enter 'M', 'F', or 'O'.");
-              // TODO: while(true) creates an infinite loop. what makes the loop stop?
-              // Ans: the while (true) statement creates an infinite loop when valid but If the input is invalid, the program displays an error message and continues the loop until a valid gender is entered.
-            } while (true); 
+            } while (true);// TODO: while(true) creates an infinite loop. what makes the loop stop?
+                           // Ans: the while (true) statement creates an infinite loop when valid but If the input is invalid, the program displays an error message and continues the loop until a valid gender is entered. 
+              return gender;
+        }
+
+            char gender = GetValidGender();
 
             // Questionnaire
             List<string> responses = new List<string>();
