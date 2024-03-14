@@ -111,14 +111,14 @@ namespace HealthApp
             {
                 HandleQuestionResponse(question);
             }
-
+        
         // TODO: consider creating a method to output these section displays
         // Contact information title
-        void DisplaySectionHeader2(string header)
+        void DisplaySectionHeader2(string header2)
         {
             Console.WriteLine("");
             Console.WriteLine("******************************************");
-            Console.WriteLine(header);
+            Console.WriteLine(header2);
             Console.WriteLine("******************************************");
         }
         DisplaySectionHeader2("Contact information");
@@ -132,19 +132,19 @@ namespace HealthApp
                 "Email address",
                 "Phone number"
         };
-        void HandleQuestionResponse2(string question)
+        void HandleQuestionResponse2(string question2)
         {
-            string response;
+            string response2;
             do
             {
-                Console.Write($"{question}: ");
-                response = Console.ReadLine();
-            } while (string.IsNullOrWhiteSpace(response));
-            responses.Add(response);
+                Console.Write($"{question2}: ");
+                response2 = Console.ReadLine();
+            } while (string.IsNullOrWhiteSpace(response2));
+            responses.Add(response2);
         }
-            foreach (string question in questions)
+            foreach (string question2 in questions2)
             {
-                HandleQuestionResponse2(question);
+                HandleQuestionResponse2(question2);
             }
 
         // TODO: consider creating a method to output these section displays
@@ -166,19 +166,19 @@ namespace HealthApp
                 "Emergency contact first & last name",
                 "Emergency contact phone number"
         };
-        void HandleQuestionResponse3(string question)
+        void HandleQuestionResponse3(string question3)
         {
-            string response;
+            string response3;
             do
             {
-                Console.Write($"{question}: ");
-                response = Console.ReadLine();
-            } while (string.IsNullOrWhiteSpace(response));
-            responses.Add(response);
+                Console.Write($"{question3}: ");
+                response3 = Console.ReadLine();
+            } while (string.IsNullOrWhiteSpace(response3));
+            responses.Add(response3);
         }
-            foreach (string question in questions)
+            foreach (string question3 in questions3)
             {
-                HandleQuestionResponse3(question);
+                HandleQuestionResponse3(question3);
             }
 
         // TODO: consider creating a method to output these section displays
@@ -222,24 +222,24 @@ namespace HealthApp
                 "Mood changes, depression, or anxiety",
                 "Sleep disturbances or insomnia"
 };    
-        void HandleQuestionResponse4(string question)
+        void HandleQuestionResponse4(string question4)
         {
-            string response;
+            string response4;
             do
             {
-               Console.Write($"{question} Y/N: ");
-               response = Console.ReadLine();
-            } while (!IsValidResponse(response));
-             responses.Add(response);
+               Console.Write($"{question4} Y/N: ");
+               response4 = Console.ReadLine();
+            } while (!IsValidResponse(response4));
+             responses.Add(response4);
         }
             // Method to validate the response (Y/N)
-            bool IsValidResponse(string response)
+            bool IsValidResponse(string response4)
             {
-                return !string.IsNullOrWhiteSpace(response) && (response.Equals("Y", StringComparison.OrdinalIgnoreCase) || response.Equals("N", StringComparison.OrdinalIgnoreCase));
+                return !string.IsNullOrWhiteSpace(response4) && (response4.Equals("Y", StringComparison.OrdinalIgnoreCase) || response4.Equals("N", StringComparison.OrdinalIgnoreCase));
             }
-            foreach (string question in questions)
+            foreach (string question4 in questions4)
             {
-                HandleQuestionResponse4(question);
+                HandleQuestionResponse4(question4);
             }
 
             // Profile Summary Section
